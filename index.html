@@ -9,9 +9,14 @@
 <body>
     <div class="container">
         <h1>Tip Calculator</h1>
+
+        <p class="rates">$1 USD = €0.95 EUR | $1 USD = ₹85 INR</p>
+
         <form id="tipForm">
             <label for="billTotal">Bill Total ($):</label>
             <input type="text" id="billTotal" name="billTotal">
+
+            <p id="errorMessage"></p>
 
             <label for="billWithTax">Total Bill with Tax (11%):</label>
             <input type="text" id="billWithTax" disabled>
@@ -23,7 +28,7 @@
                 <option value="inr">Rupees</option>
             </select>
 
-            <label for="tipRange">Tip (%)</label>
+            <label for="tipRange">Tip (%):</label>
             <input type="range" id="tipRange" min="0" max="100" value="0">
 
             <label for="tipPercent">Tip Percentage:</label>
@@ -35,10 +40,13 @@
             <label for="totalWithTip">Total Bill with Tip:</label>
             <input type="text" id="totalWithTip" disabled>
 
+            <label for="totalWithTipAndTax">Total Bill with Tip and Tax:</label>
+            <input type="text" id="totalWithTipAndTax" disabled>
+
             <label for="convertedTip">Converted Tip Amount:</label>
             <input type="text" id="convertedTip" disabled>
 
-            <label for="convertedTotal">Converted Total Bill with Tip and Tax</label>
+            <label for="convertedTotal">Converted Total Bill with Tip and Tax:</label>
             <input type="text" id="convertedTotal" disabled>
         </form>
     </div>
