@@ -39,3 +39,14 @@ if (bill == 0) {
 //calculating tip based on percentage
 const tipValue = bill * (tip / 100);
 tipAmount.value = tripValue.toFixed(2);
+
+//total with tip
+const totalTip = bill + tipValue;
+totalWithTip.value = totalTip.toFixed(2);
+
+//total with approx tax which is set to 11%
+const taxTotal = bill * 1.11;
+billWithTax.value = taxTotal.toFixed(2);
+
+//total with tip and tax
+const totalWithTipAndTax = taxTotal + tipValue;
