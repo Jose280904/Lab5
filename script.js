@@ -8,3 +8,10 @@ const tipAmount = document.getElementById("tipAmount");
 const totalWithTip = document.getElementById("totalWithTip");
 const convertedTip = document.getElementById("convertedTip");
 const convertedTotal = document.getElementById("convertedTotal");
+
+form.addEventListener("input", function () {
+    const bill = parseFloat(billTotal.value);
+    const tip = parseFloat(tipRange.value);
+
+    tipPercent.value = tip + "%";
+});
