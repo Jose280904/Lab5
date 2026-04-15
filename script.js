@@ -13,7 +13,16 @@ const errorMessage = document.getElementById("errorMessage");
 
 form.addEventListener("input", function () {
     const bill = parseFloat(billTotal.value);
-    const tip = parseFloat(tipRange.value);
+    let tip = parseFloat(tipRange.value);
+
+    // typing the tip amount manually
+    // Allow typing tip manually
+if (document.activeElement === tipPercent) {
+    tip = parseFloat(tipPercent.value) || 0;
+    tipRange.value = tip;
+} else {
+    tipPercent.value = tip + "%";
+}
 
     tipPercent.value = tip + "%";
     errorMessage.textContent = "";
