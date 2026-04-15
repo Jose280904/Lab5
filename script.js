@@ -35,3 +35,7 @@ if (bill == 0) {
     convertedTotal.value = "0.00";
     return;
 }
+
+//calculating tip based on percentage
+const tipValue = bill * (tip / 100);
+tipAmount.value = tripValue.toFixed(2);
