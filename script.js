@@ -11,20 +11,26 @@ const convertedTip = document.getElementById("convertedTip");
 const convertedTotal = document.getElementById("convertedTotal");
 const errorMessage = document.getElementById("errorMessage");
 
+tipPercent.addEventListener("focus", function () {
+    tipPercent.value = tipRange.value;
+});
+
 form.addEventListener("input", function () {
     const bill = parseFloat(billTotal.value);
-    let tip = parseFloat(tipRange.value);
+    let tip;
 
-    // typing the tip amount manually
-    // Allow typing tip manually
-if (document.activeElement === tipPercent) {
-    tip = parseFloat(tipPercent.value) || 0;
-    tipRange.value = tip;
-} else {
-    tipPercent.value = tip + "%";
-}
+    if (document.activeElement === tipPercent) {
+        tip = parseFloat(tipPercent.value) || 0;
 
-    tipPercent.value = tip + "%";
+        if (tip < 0) tip = 0;
+        if (tip > 100) tip = 100;
+
+        tipRange.value = tip;
+    } else {
+        tip = parseFloat(tipRange.value);
+        tipPercent.value = tip + "%";
+    }
+
     errorMessage.textContent = "";
 
     if (billTotal.value.trim() === "") {
