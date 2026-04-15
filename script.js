@@ -15,3 +15,23 @@ form.addEventListener("input", function () {
 
     tipPercent.value = tip + "%";
 });
+
+//validation
+if (isNaN(bill) || bill < 0) {
+    tipAmount.value = "";
+    totalWithTip.value = "";
+    billWithTax.value = "";
+    convertedTip.value = "";
+    convertedTotal.value = "";
+    return;
+}
+
+//reset if bill is 0
+if (bill == 0) {
+    tipAmount.value = "0.00";
+    totalWithTip.value = "0.00";
+    billWithTax.value = "0.00";
+    convertedTip.value = "0.00";
+    convertedTotal.value = "0.00";
+    return;
+}
