@@ -49,9 +49,9 @@ form.addEventListener("input", function () {
         return;
     }
 
+    const taxTotal = bill * 1.11;
     const tipValue = bill * (tip / 100);
     const totalTip = bill + tipValue;
-    const taxTotal = bill * 1.11;
     const finalTotal = taxTotal + tipValue;
 
     let rate = 1;
@@ -62,8 +62,9 @@ form.addEventListener("input", function () {
         rate = 85;
     }
 
-    const convertedTipValue = tipValue * rate;
-    const convertedTotalValue = finalTotal * rate;
+    const convertedBillWithTax = taxTotal * rate;
+    const convertedTipValue = convertedBillWithTax * (tip / 100);
+    const convertedTotalValue = convertedBillWithTax + convertedTipValue;
 
     tipAmount.value = tipValue.toFixed(2);
     totalWithTip.value = totalTip.toFixed(2);
