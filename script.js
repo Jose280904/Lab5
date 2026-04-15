@@ -16,7 +16,7 @@ form.addEventListener("input", function () {
     tipPercent.value = tip + "%";
 });
 
-//validation
+// Validation
 if (isNaN(bill) || bill < 0) {
     tipAmount.value = "";
     totalWithTip.value = "";
@@ -26,8 +26,8 @@ if (isNaN(bill) || bill < 0) {
     return;
 }
 
-//reset if bill is 0
-if (bill == 0) {
+// Reset if bill is 0
+if (bill === 0) {
     tipAmount.value = "0.00";
     totalWithTip.value = "0.00";
     billWithTax.value = "0.00";
@@ -36,34 +36,33 @@ if (bill == 0) {
     return;
 }
 
-//calculating tip based on percentage
 const tipValue = bill * (tip / 100);
-tipAmount.value = tripValue.toFixed(2);
+tipAmount.value = tipValue.toFixed(2);
 
-//total with tip
+// Total with tip
 const totalTip = bill + tipValue;
 totalWithTip.value = totalTip.toFixed(2);
 
-//total with approx tax which is set to 11%
+// Total with tax (11%)
 const taxTotal = bill * 1.11;
 billWithTax.value = taxTotal.toFixed(2);
 
-//total with tip and tax
+// Total with tip AND tax
 const totalWithTipAndTax = taxTotal + tipValue;
 
 let rate = 1;
 
-//find conversion rate
+// Determine conversion rate
 if (currency.value === "eur") {
     rate = 0.95;
 } else if (currency.value === "inr") {
     rate = 85;
 }
 
-//convert values
+// Convert values
 const convertedTipValue = tipValue * rate;
 const convertedTotalValue = totalWithTipAndTax * rate;
 
-//display the converted values
+// Display converted values
 convertedTip.value = convertedTipValue.toFixed(2);
 convertedTotal.value = convertedTotalValue.toFixed(2);
