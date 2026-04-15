@@ -50,3 +50,20 @@ billWithTax.value = taxTotal.toFixed(2);
 
 //total with tip and tax
 const totalWithTipAndTax = taxTotal + tipValue;
+
+let rate = 1;
+
+//find conversion rate
+if (currency.value === "eur") {
+    rate = 0.95;
+} else if (currency.value === "inr") {
+    rate = 85;
+}
+
+//convert values
+const convertedTipValue = tipValue * rate;
+const convertedTotalValue = totalWithTipAndTax * rate;
+
+//display the converted values
+convertedTip.value = convertedTipValue.toFixed(2);
+convertedTotal.value = convertedTotalValue.toFixed(2);
